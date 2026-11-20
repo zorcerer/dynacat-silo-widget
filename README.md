@@ -72,10 +72,13 @@ cache, so the browser does not contact Silo.
 
 ## Tested
 
-Rendered by Dynacat built from source (Dynacat `main`, 2026-11-18) in a small
-and a full column, against a stand-in for Silo that answers the three routes
-in the shapes of Silo's `/api/v2` OpenAPI contract. Not yet run against a live
-Silo server.
+On a live server, the maintainer has run the widget on Silo's `latest` image
+(2026-11-18) with Dynacat 3.0.2.
+
+It has also been rendered by Dynacat built from source (Dynacat `main`,
+2026-11-18) in a small and a full column, against a stand-in for Silo that
+answers the three routes in the shapes of Silo's `/api/v2` OpenAPI contract,
+including the empty state and an override of the throughput subrequest.
 
 ## License
 
