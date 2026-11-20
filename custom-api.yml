@@ -1,12 +1,13 @@
-# Silo widget as a Dynacat custom-api widget.
-# Uses the same template as widget/template.txt; set SILO_URL, SILO_API_KEY
-# and SILO_PROFILE_ID in Dynacat's environment.
+# Silo widget for Dynacat. Paste into a column's `widgets:` list and set
+# SILO_URL, SILO_API_KEY and SILO_PROFILE_ID in Dynacat's environment.
+# See README.md for the API key and the settings below.
 - type: custom-api
   title: Silo
   cache: 30s
   url: ${SILO_URL}/api/v2/admin/sessions
   headers:
     Authorization: Bearer ${SILO_API_KEY}
+  # Address poster links open; defaults to SILO_URL.
   # options:
   #   public-url: https://silo.example.com
   subrequests:
@@ -15,14 +16,14 @@
       headers:
         Authorization: Bearer ${SILO_API_KEY}
       parameters:
-        hours: 6
+        hours: 6 # chart window, 1 to 744
     recent:
       url: ${SILO_URL}/api/v2/catalog
       headers:
         Authorization: Bearer ${SILO_API_KEY}
         X-Profile-Id: ${SILO_PROFILE_ID}
       parameters:
-        type: video
+        type: video # movie, series, episode, or video (movies and series)
         sort: -added_at
         limit: 8
         skip_total: true
